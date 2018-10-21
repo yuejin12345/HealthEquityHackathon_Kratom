@@ -220,3 +220,13 @@ ggplot(df_tweets, aes(x = created, y = sentiment, color = sentiment)) +
         axis.text.x = element_text(size = 8, face = "bold", color = 'black')) +
   ggtitle("Tweets Sentiment Rate (Probability of Positiveness)")
 
+  
+# ------------ Scatter plot of DEA sentiment reviews -----------------------------
+  data <- read.csv("/Users/yuejin/Downloads/sentiment_1000.csv", header = T)
+View(data)
+library(ggplot2)
+
+p <- ggplot(data, aes(overallScore, kratomScore))
+p + geom_point(aes(colour = kratomScore), size = 4) +
+  geom_point(colour = "grey90", size = 1.5)
+
